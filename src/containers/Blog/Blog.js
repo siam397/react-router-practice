@@ -14,7 +14,9 @@ class Blog extends Component{
         prevY: 0
     }
     getPosts(page){
-        axios.get("https://jsonplaceholder.typicode.com/posts")
+        const url="https://jsonplaceholder.typicode.com/posts?_page=$"+page+"&_limit=40"
+        //create a link like this in backend
+        axios.get(url)
             .then(response=>{
                 this.setState({ posts: [...this.state.posts, ...response.data] });
                 this.setState({ loading: false });
@@ -29,7 +31,7 @@ class Blog extends Component{
             root: null,
             rootMargin: "0px",
             threshold: 1.0
-          };
+        };
           
           this.observer = new IntersectionObserver(
             this.handleObserver.bind(this),
@@ -48,7 +50,7 @@ class Blog extends Component{
               this.setState({ page: curPage });
             }
             this.setState({ prevY: y });
-          }
+        }
 
     postClicked(id){
         const url="/fullPost/" + id
@@ -73,13 +75,10 @@ class Blog extends Component{
                 />
             )
         })
-        // Additional css
     const loadingCSS = {
         height: "100px",
         margin: "30px"
       };
-  
-      // To change the loading icon behavior
       const loadingTextCSS = { display: this.state.loading ? "block" : "none" };
         return(
             
@@ -87,8 +86,8 @@ class Blog extends Component{
                 {this.state.redirect}
                 {posts}
                 <div
-          ref={loadingRef => (this.loadingRef = loadingRef)}
-          style={loadingCSS}
+                ref={loadingRef => (this.loadingRef = loadingRef)}
+                style={loadingCSS}
         >
           <span style={loadingTextCSS}>Loading...</span>
         </div>
