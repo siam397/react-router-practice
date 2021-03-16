@@ -1,9 +1,10 @@
-.mainBlog{
-    width: 70%;
+.mainPost{
+    width: 80%;
     margin: auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
+
 
 

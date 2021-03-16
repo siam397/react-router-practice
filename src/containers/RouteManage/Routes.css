@@ -1,0 +1,33 @@
+.mainDiv{
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    
+}
+
+ul{
+    list-style: none;
+    text-align: center;
+}
+li{
+    font-weight: bold;
+    font-size: 25px;
+    display: inline-block;
+    margin: 30px;
+    transition: .5s;
+}
+
+li:hover{
+    transform: scale(1.1);
+}
+
+li a{
+    text-decoration: none;
+}
+
+.active{
+    color: chocolate;
+    margin-bottom: 2px;
+    border-bottom: 1px solid chocolate;
+    padding: 5px;
+}
